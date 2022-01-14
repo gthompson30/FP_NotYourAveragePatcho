@@ -1,10 +1,10 @@
-<Team Name>
-<Member 0 Name>
-<Member 1 Name>
-<Member 2 Name>
-pd <pd#>
+NotYourAveragePatcho
+Gabriel Thompson
+Faiza Huda
+Jacob Ng
+pd 8
 ---------------------
-<Project Summary / Working Title>
+M1N3SW33P3R
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -61,9 +61,15 @@ tales of wisdom gained...
 ==============================================================
 
 
-yyyy-mm-dd
+2022-01-13
 --------------------------------------------------------------
-<Member> :: <Thing member did.>
-<Member> :: <Thing member did.>
-<Member> :: <Thing member did.>
+Gabriel Thompson :: Created repo, typed initial code for Board and Woo
+Faiza Huda       :: 
+Jacob Ng         :: <Thing member did.>
 ==============================================================
+
+2022-01-14
+--------------------------------------------------------------
+Gabriel Thompson :: Added other team members to repo, wrote part of abstract
+Faiza Huda       :: Created .gitignore, created googdoc, posted q on piazza
+Jacob Ng         :: Wrote UML diagram based on our current progress in code

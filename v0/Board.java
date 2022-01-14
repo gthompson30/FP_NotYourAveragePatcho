@@ -2,11 +2,11 @@ import java.util.Arrays;
 
 public class Board {
 
-	int width;
-	int height;
-	int minesCount;
-	boolean[][] mines;
-	boolean[][] viewed;
+	private int width;
+	private int height;
+	private int minesCount;
+	private boolean[][] mines;
+	private boolean[][] viewed;
 
 	public Board(int newWidth, int newHeight) {
 		this.width = newWidth;
