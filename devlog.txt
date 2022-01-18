@@ -78,8 +78,8 @@ Jacob Ng         :: Wrote UML diagram based on our current progress in code
 
 2022-01-17
 --------------------------------------------------------------
-Gabriel Thompson :: 
-Faiza Huda       :: 
-Jacob Ng         :: Created the greatest team flag ever
+Gabriel Thompson :: Wrote Gameplay section of propro
+Faiza Huda       :: Wrote Tools and Overview sections, uploaded propro
+Jacob Ng         :: Created the greatest team flag ever, added UML diagram
 ==============================================================
 
