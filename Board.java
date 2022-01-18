@@ -29,13 +29,31 @@ public class Board {
 	}
 
 	public void displayBoard() {
+		System.out.print("");
+		int first = 0;
+		int second = 0;
+		for (int i = 0; i < (10*first + second); i++) {
+			if (i % 10 == 0 && i != 0) {
+				first++;
+			}
+			System.out.print(first);
+		}
+		System.out.println();
+
+                for (int i = 0; i < (10*first + second); i++) {
+                        System.out.print(second);
+			second++;
+                }
+                System.out.println();
+
+//(546 % (10^2)) / (10^(2-1))
 		for (int row = 1; row < this.height - 1; row++) {
 			for (int col = 1; col < this.width - 1; col++) {
 				int surroundingCount = this.getSurroundingCount(row, col);
-				if (surroundingCount > -1) {//this.viewed[row][col]) {
+				if (this.viewed[row][col]) {
 					System.out.print(surroundingCount);
 				} else {
-					System.out.print(" ");
+					System.out.print("-");
 				}
 			}
 			System.out.println();
