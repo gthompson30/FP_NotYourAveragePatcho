@@ -2,14 +2,14 @@ import java.util.Arrays;
 
 public class Board {
 
-	private int width;
+	private int width ;
 	private int height;
 	private int minesCount;
 	private boolean[][] mines;
 	private boolean[][] viewed;
 
 	public Board(int newWidth, int newHeight) {
-		this.width = newWidth;
+		this.width = newWidth ;
 		this.height = newHeight;
 		this.mines = new boolean[newHeight][newWidth];
 		this.viewed = new boolean[newHeight][newWidth];
@@ -40,9 +40,10 @@ public class Board {
   	}
 
 	public void displayBoard() {
-		int topNumbers [][] = new int[2][width];
-		int remainder = (width % 10) - 2;
-		int numtens = width / 10  ;
+		int tempWidth = width - 2;
+		int topNumbers [][] = new int[2][tempWidth];
+		int remainder = (tempWidth % 10);
+		int numtens = tempWidth / 10  ;
 		int i;
 		int ifdk = 0;
 		int p;
@@ -50,8 +51,10 @@ public class Board {
 		int r;
 		int v;
 
-		System.out.println(remainder);
-		System.out.println(numtens);
+		//System.out.println(remainder);
+		//System.out.println(numtens);
+		//System.out.println(width);
+
 
 		for (i = 0; i < numtens; i++){
 			for (int j = i*10; j < i * 10 + 10; j++){
