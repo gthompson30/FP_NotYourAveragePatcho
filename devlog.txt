@@ -73,3 +73,13 @@ Jacob Ng         :: <Thing member did.>
 Gabriel Thompson :: Added other team members to repo, wrote part of abstract
 Faiza Huda       :: Created .gitignore, created googdoc, posted q on piazza
 Jacob Ng         :: Wrote UML diagram based on our current progress in code
+==============================================================
+
+
+2022-01-17
+--------------------------------------------------------------
+Gabriel Thompson :: 
+Faiza Huda       :: 
+Jacob Ng         :: Created the greatest team flag ever
+==============================================================
+
