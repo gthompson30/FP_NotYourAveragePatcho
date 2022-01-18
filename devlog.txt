@@ -71,7 +71,7 @@ Jacob Ng         :: <Thing member did.>
 2022-01-14
 --------------------------------------------------------------
 Gabriel Thompson :: Added other team members to repo, wrote part of abstract
-Faiza Huda       :: Created .gitignore, created googdoc, posted q on piazza
+Faiza Huda       :: Created .gitignore, created propro + abstract, posted q on piazza
 Jacob Ng         :: Wrote UML diagram based on our current progress in code
 ==============================================================
 
