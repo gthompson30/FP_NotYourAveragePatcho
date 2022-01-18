@@ -88,6 +88,6 @@ Jacob Ng         :: Created the greatest team flag ever, added UML diagram
 --------------------------------------------------------------
 Gabriel Thompson :: 
 Faiza Huda       :: 
-Jacob Ng         :: Edited DisplayBoard() to have a really janky way to display coordinates.
+Jacob Ng         :: Edited DisplayBoard() in v0 to have a really janky way to display coordinates.
 ==============================================================
 
