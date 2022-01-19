@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Woo {
 
 	public static void main(String[] args) {
-		int startTime = currentTimeMillis();
+		long startTime = System.currentTimeMillis();
 		int finalScoreTime;
 		boolean playing = true;
 		Scanner sc = new Scanner(System.in);

@@ -144,9 +144,10 @@ public class Board {
 
 	public boolean winChecker(){
 		int unflaggedMines = 0;
-		for (int row = 0; row < thius.height - 1; row ++){
-			for (int col = 0; col < this.width - 1; col++)
+		for (int row = 0; row < this.height - 1; row ++){
+			//for (int col = 0; col < this.width - 1; col++)
 		}
+		return true;
 	}
 
 }
