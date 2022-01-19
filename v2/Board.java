@@ -54,7 +54,11 @@ public class Board {
 				if (this.flags[row][col]) {
 					System.out.print("⚑");
 				} else if (this.viewed[row][col]) {
+					if (surroundingCount == 0){
+						System.out.print(" ");
+					} else {
 					System.out.print(surroundingCount);
+					}
 				} else if (this.mines[row][col] && showMines) {
 					System.out.print("@");
 				} else {
@@ -95,6 +99,9 @@ public class Board {
 	public void showMines() { this.showMines = true; }
 
 	public void selectTile(int row, int col) {
+		if (flags[row][col]){
+			return;
+		}
 		ArrayList<int[]> seen = new ArrayList<int[]>();
 		tileFillHelper(row, col, seen);
 	}
@@ -133,6 +140,13 @@ public class Board {
 
 	public void flag(int row, int col) {
 		this.flags[row][col] = !this.flags[row][col];
+	}
+
+	public boolean winChecker(){
+		int unflaggedMines = 0;
+		for (int row = 0; row < thius.height - 1; row ++){
+			for (int col = 0; col < this.width - 1; col++)
+		}
 	}
 
 }
