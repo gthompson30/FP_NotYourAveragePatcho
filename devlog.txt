@@ -61,8 +61,6 @@ tales of wisdom gained...
 2022-01-13
 --------------------------------------------------------------
 Gabriel Thompson :: Created repo, typed initial code for Board and Woo
-Faiza Huda       :: 
-Jacob Ng         :: <Thing member did.>
 ==============================================================
 
 2022-01-14
@@ -85,27 +83,24 @@ Jacob Ng         :: Created the greatest team flag ever, added UML diagram
 --------------------------------------------------------------
 Gabriel Thompson :: Improved board to fix (literal) edge cases where detecting
                     mines goes over the side
-Faiza Huda       :: Made and perfected coordinate system for both rows and cols
-                    started ANSI text class file
-Jacob Ng         :: Edited DisplayBoard() to have a really janky way to display 
-                    coordinates.
+Faiza Huda       :: attempted to do coordinates for top of board (columns)
 ==============================================================
 
-2022-01-18 (@ dojo and after school)
+2022-01-18 (@ dojo and after school/home)
 --------------------------------------------------------------
 Gabriel Thompson :: Wrote flood fill algorithm
-Faiza Huda       :: 
+Faiza Huda       :: Perfected coordinate system for both rows and cols
+                    started ANSI text class file
 Jacob Ng         :: Designed markers for the top of the screen.
 ==============================================================
 
 2022-01-19 (class)
 --------------------------------------------------------------
 Gabriel Thompson :: Refined flood fill algorithm, to not stop filling at corners
-Faiza Huda       :: 
-Jacob Ng         :: 
+Faiza Huda       :: Added more input prompts and flaging
+==============================================================
 
-
-2022-01-19 (@ dojo and after class)
+2022-01-19 (@ dojo and after class/home)
 --------------------------------------------------------------
 Gabriel Thompson :: 
 Faiza Huda       :: 
