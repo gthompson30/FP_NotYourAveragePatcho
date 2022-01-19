@@ -80,8 +80,5 @@ public class Board {
 		return count;
 	}
 
-	public void selectTile(int row, int col) {
-		this.viewed[row][col] = true;
-	}
-
 }
+

@@ -14,7 +14,7 @@ public class Woo {
 			System.out.print("Enter row and col to select separated by space: ");
 			int row = sc.nextInt();
 			int col = sc.nextInt();
-			b.selectTile(row, col);
+			//b.selectTile(row, col);
 			b.displayBoard();
 		}
 	}
