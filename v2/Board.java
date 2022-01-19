@@ -92,10 +92,9 @@ public class Board {
 		return this.mines[row][col];
 	}
 
+	public void showMines() { this.showMines = true; }
+
 	public void selectTile(int row, int col) {
-		if (isAMine(row, col)) {
-			this.showMines = true;
-		}
 		ArrayList<int[]> seen = new ArrayList<int[]>();
 		tileFillHelper(row, col, seen);
 	}
@@ -133,7 +132,7 @@ public class Board {
 	}
 
 	public void flag(int row, int col) {
-		this.flags[row][col] = true;
+		this.flags[row][col] = !this.flags[row][col];
 	}
 
 }

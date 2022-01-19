@@ -5,7 +5,7 @@ public class Woo {
 	public static void main(String[] args) {
 		boolean playing = true;
 		Scanner sc = new Scanner(System.in);
-		Board b = new Board(30, 20);
+		Board b = new Board(90, 60);
 		b.generateMines();
 
 		while (playing) {
@@ -18,16 +18,19 @@ public class Woo {
 			System.out.print("Would you like to open, or flag this tile (Type open/flag)? ");
 			String moveType = sc.next();
 			moveType = moveType.toLowerCase();
+
 			if (moveType.equals("open")) {
 				b.selectTile(row, col);
+
+                        	if (b.isAMine(row, col)) {
+                                	b.showMines();
+                        	        b.displayBoard();
+                	                System.out.print("\nAHA! You stepped on a mine! Game over!");
+        	                        playing = false;
+	                        }
+
 			} else if (moveType.equals("flag")) {
 				b.flag(row, col);
-			}
-
-			if (b.isAMine(row, col)) {
-				b.displayBoard();
-				System.out.print("\nAHA! You stepped on a mine! Game over!");
-				playing = false;
 			}
 		}
 	}
