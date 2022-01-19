@@ -17,6 +17,7 @@ OBSTACLES OVERCOME
  - Fixed confusing issues with row markers
  - Stopped using just one function to do the flood fill -- instead had a driver function
    and a separate function that actually does the flood filling
+ - Fixed bug that allows user to still open flagged tile
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -103,5 +104,6 @@ Faiza Huda       :: Added more input prompts and flaging
 2022-01-19 (@ dojo and after class/home)
 --------------------------------------------------------------
 Gabriel Thompson :: 
-Faiza Huda       :: 
+Faiza Huda       :: Fixed bug with flagged tiles; changed flood fill to not have 0s in the inside;
+                    made a prelim winChecker and score
 Jacob Ng         :: 
