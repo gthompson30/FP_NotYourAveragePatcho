@@ -7,7 +7,7 @@ public class Woo {
 		Scanner sc = new Scanner(System.in);
 		Board b = new Board(30, 20);
 		b.generateMines();
-
+		
 		while (playing) {
 			b.displayBoard();
 	

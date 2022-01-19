@@ -50,6 +50,8 @@ public class Board {
 				int surroundingCount = this.getSurroundingCount(row, col);
 				if (this.viewed[row][col]) {
 					System.out.print(surroundingCount);
+				} else if (this.mines[row][col]) {
+					System.out.print("M");
 				} else {
 					System.out.print("-");
 				}
@@ -89,18 +91,15 @@ public class Board {
 
 	public void tileFillHelper(int row, int col, ArrayList<int[]> seen) {
 		displayBoard();
-
-		if (getSurroundingCount(row, col) > 0) {
-			this.viewed[row][col] = true;
-			return;
-		}
+		if (getSurroundingCount(row, col) > 0) { return; }
 
 		if (!pairInArray(row, col, seen)) { // if we haven't seen this pair 
-                int[] toAdd = new int[2];
-                toAdd[0] = row; toAdd[1] = col;
-                seen.add(toAdd);
-
 			this.viewed[row][col] = true;
+
+			int[] toAdd = new int[2];
+			toAdd[0] = row; toAdd[1] = col;
+			seen.add(toAdd);
+
 			tileFillHelper(row + 1, col, seen);
 			tileFillHelper(row - 1, col, seen);
 			tileFillHelper(row, col + 1, seen);
