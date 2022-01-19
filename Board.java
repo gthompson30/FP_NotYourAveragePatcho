@@ -29,26 +29,23 @@ public class Board {
 	}
 
 	public void displayBoard() {
-		System.out.print("");
-		int first = 0;
-		int second = 0;
-		for (int i = 0; i < (10*first + second); i++) {
-			if (i % 10 == 0 && i != 0) {
-				first++;
-			}
-			System.out.print(first);
-		}
+		for (int i = 0 ; i < 10 ; i++) { System.out.println(); }
+		System.out.print("     ");
+		for (int i = 0; i < this.width; i++)
+			System.out.print((int) (i / 10));
+		System.out.print("\n     ");
+		for (int i = 0; i < this.width; i++)
+			System.out.print(i % 10);
+                System.out.print("\n   ╔ ");
+		for (int i = 0; i < this.width; i++)
+			System.out.print("═");
 		System.out.println();
-
-                for (int i = 0; i < (10*first + second); i++) {
-                        System.out.print(second);
-			second++;
-                }
-                System.out.println();
-
-//(546 % (10^2)) / (10^(2-1))
-		for (int row = 1; row < this.height - 1; row++) {
-			for (int col = 1; col < this.width - 1; col++) {
+		for (int row = 0; row < this.height; row++) {
+			if (row < 10) {
+				System.out.print(0);
+			}
+			System.out.print(row + " ║ ");
+			for (int col = 0; col < this.width; col++) {
 				int surroundingCount = this.getSurroundingCount(row, col);
 				if (this.viewed[row][col]) {
 					System.out.print(surroundingCount);
@@ -58,18 +55,33 @@ public class Board {
 			}
 			System.out.println();
 		}
+		System.out.println();
 	}
 
 	public int getSurroundingCount(int row, int col) {
 		int count = 0;
-		for (int dx = col-1; dx <= col+1; dx++) {
-			for (int dy = row-1; dy <= row+1; dy++) {
+		int minX = col - 1;
+		int maxX = col + 1;
+		int minY = row - 1;
+		int maxY = row + 1;
+
+		if (minY == -1) { minY = 0; }
+		if (minX == -1) { minX = 0; }
+		if (maxX == this.width) { maxX--; }
+		if (maxY == this.height) { maxY--; }
+
+		for (int dx = minX; dx <= maxX; dx++) {
+			for (int dy = minY; dy <= maxY; dy++) {
 				if (this.mines[dy][dx]) {
 					count++;
 				}
 			}
 		}
 		return count;
+	}
+
+	public void selectTile(int row, int col) {
+		this.viewed[row][col] = true;
 	}
 
 }
