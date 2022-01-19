@@ -1,8 +1,10 @@
+import java.util.Scanner;
+
 public class Woo {
 
 	public static void main(String[] args) {
-		Board b = new Board(31, 20);
-		b.generateMines();
+		Scanner sc = new Scanner(System.in);
+		Board b = new Board(30, 20);
 		b.displayBoard();
 	}
 
