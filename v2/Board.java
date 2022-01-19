@@ -143,9 +143,12 @@ public class Board {
 	}
 
 	public boolean winChecker(){
-		int unflaggedMines = 0;
 		for (int row = 0; row < this.height - 1; row ++){
-			//for (int col = 0; col < this.width - 1; col++)
+			for (int col = 0; col < this.width - 1; col++){
+				if (isAMine(row, col) && !flags[row][col]){ //use isAMine method and make isflag method OR just do mines[][]
+					return false;
+				}
+			}
 		}
 		return true;
 	}
