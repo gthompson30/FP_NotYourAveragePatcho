@@ -4,7 +4,7 @@ public class Woo {
 
 	public static void main(String[] args) {
 		long startTime = System.currentTimeMillis();
-		int finalScoreTime;
+		long finalScoreTime;
 		boolean playing = true;
 		Scanner sc = new Scanner(System.in);
 		Board b = new Board(90, 60);
@@ -33,6 +33,14 @@ public class Woo {
 
 			} else if (moveType.equals("flag")) {
 				b.flag(row, col);
+			}
+			if (b.winChecker()){
+				finalScoreTime = System.currentTimeMillis() - startTime;
+				if (finalScoreTime > 999){
+					finalScoreTime = 999;
+				}
+				System.out.print("\nYAY! You did it. I knew you could :) \n Score = " +  finalScoreTime);
+				playing = false;
 			}
 		}
 	}
