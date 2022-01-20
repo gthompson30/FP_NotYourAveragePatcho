@@ -54,14 +54,16 @@ public class Board {
 				int surroundingCount = this.getSurroundingCount(row, col);
 
 				if (this.flags[row][col]) {
-					System.out.print("⚑");
+					System.out.print("\u001b[91m⚐\u001b[0m");
 
 				} else if (this.viewed[row][col]) {
 
 					if (surroundingCount == 0){
 						System.out.print(" ");
 					} else {
+						System.out.print(Text.getColor(surroundingCount));
 						System.out.print(surroundingCount);
+						System.out.print("\u001b[0m");
 					}
 
 				} else if (this.mines[row][col] && showMines) {

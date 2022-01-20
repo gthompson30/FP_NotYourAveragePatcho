@@ -103,7 +103,7 @@ Faiza Huda       :: Added more input prompts and flaging
 
 2022-01-19 (@ dojo and after class/home)
 --------------------------------------------------------------
-Gabriel Thompson :: 
-Faiza Huda       :: Fixed bug with flagged tiles; changed flood fill to not have 0s in the inside;
+Gabriel Thompson :: Fixed bug with flagged tiles; changed flood fill to not have 0s in the inside;
                     made a prelim winChecker and score
+Faiza Huda       :: 
 Jacob Ng         :: 
