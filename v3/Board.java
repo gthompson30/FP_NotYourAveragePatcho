@@ -11,6 +11,7 @@ public class Board {
 	private boolean[][] mines;
 	private boolean[][] viewed;
 	private boolean[][] flags;
+	public int tileCount;
 
 	public Board(int newWidth, int newHeight) {
 		this.width = newWidth;
@@ -126,7 +127,7 @@ public class Board {
 			return;
 		}
 
-		if (!pairInArray(row, col, seen)) { // if we haven't seen this pair 
+		if (!pairInArray(row, col, seen)) { // if we haven't seen this pair
 	                int[] toAdd = new int[2];
         	        toAdd[0] = row; toAdd[1] = col;
                 	seen.add(toAdd);
@@ -162,7 +163,7 @@ public class Board {
 				if (tile) { count++; }
 			}
 		}
+		tileCount = count;
 		return count;
 	}
 }
-
