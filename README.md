@@ -16,7 +16,7 @@ We created a version of the classic game Minesweeper that runs in the terminal.
 - We use ANSI escape codes to color tiles appropriately, and Unicode characters to draw the boundary of the board
 - We use the flood fill algorithm to clear open spaces, implemented recursively
 
-**Topics from Semester Included (so far):
+**Topics from Semester Included (so far)**:
 - Classes and instances
 - Arrays
 - ArrayLists
@@ -25,7 +25,7 @@ We created a version of the classic game Minesweeper that runs in the terminal.
 - Scanner
 - currentTimeMillis()
 
-**Topics We Will Include (and how):
+**Topics We Will Include (and how)**:
 - Inheritance (different classes for difficulties)
 - Interfaces (interface for all the difficulties)
 - Sorting algorithms (to sort high scores)
