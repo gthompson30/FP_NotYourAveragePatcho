@@ -11,7 +11,7 @@ public class Board {
 	private boolean[][] mines;
 	private boolean[][] viewed;
 	private boolean[][] flags;
-	public int tileCount;
+//	public int tileCount;
 
 	public Board(int newWidth, int newHeight) {
 		this.width = newWidth;
@@ -163,7 +163,7 @@ public class Board {
 				if (tile) { count++; }
 			}
 		}
-		tileCount = count;
+//		tileCount = count;
 		return count;
 	}
 }

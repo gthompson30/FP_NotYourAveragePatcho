@@ -5,8 +5,7 @@ public class Woo {
 
 	public static void main(String[] args) {
 		long startTime = System.currentTimeMillis();
-		//long finalScoreTime;
-		int finalScoreTime;
+		long finalScoreTime;
 		int score;
 		ArrayList scoreboard = new ArrayList<Integer>();
 		boolean playing = true;
@@ -29,16 +28,19 @@ public class Woo {
 				b.selectTile(row, col);
 
                         	if (b.isAMine(row, col)) {
-																	finalScoreTime = System.currentTimeMillis() - startTime;
-																	if (finalScoreTime > 999){
-																			finalScoreTime = 999;
-																	}
-																	score = ((int)((b.tileCount * 100.0) * ( 1.0 / finalScoreTime)));
+					finalScoreTime = System.currentTimeMillis() - startTime;
+					if (finalScoreTime > 999_999){
+						finalScoreTime = 999_999;
+					}
+					score = ((int)((b.countViewed() * 1_000_000.0) - finalScoreTime));
                                 	b.showMines();
                         	        b.displayBoard();
+//                	                System.out.print("\nAHA! You stepped on a mine! Game over! \n Score = " + finalScoreTime);
                 	                System.out.print("\nAHA! You stepped on a mine! Game over! \n Score = " + score);
+					System.out.println();
         	                        playing = false;
-																	scoreboard.add(score);
+					scoreboard.add(score);
+					System.out.println("Scoredboard: " + scoreboard);
 	                        }
 
 			} else if (moveType.equals("flag")) {
@@ -47,13 +49,17 @@ public class Woo {
 
 			if (b.hasWon()){
 				finalScoreTime = System.currentTimeMillis() - startTime;
-				if (finalScoreTime > 999){
-					finalScoreTime = 999;
+				if (finalScoreTime > 999_999){
+					finalScoreTime = 999_999;
 				}
-				score = ((int)((b.tileCount * 100.0) * ( 1.0 / finalScoreTime)));
-				System.out.print("\nYAY! You did it. I knew you could :) \n Score = " +  score);
+				score = ((int)((b.countViewed() * 1_000_000.0) - finalScoreTime));
+//				System.out.print("\nYAY! You did it. I knew you could :) \n Score = " + finalScoreTime);
+				System.out.print("\nYAY! You did it. I knew you could :) \n Score = " + score);
 				playing = false;
 				scoreboard.add(score);
+				System.out.println();
+				System.out.println("Scoredboard: " + scoreboard);
+
 			}
 		}
 	}
