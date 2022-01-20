@@ -106,4 +106,4 @@ Faiza Huda       :: Added more input prompts and flaging
 Gabriel Thompson :: Fixed bug with flagged tiles; changed flood fill to not have 0s in the inside;
                     made a prelim winChecker and score
 Faiza Huda       :: 
-Jacob Ng         :: 
+Jacob Ng         :: Created a new scoring system. Found bug where error occurs when coordinates are too large. Have not fixed yet.
