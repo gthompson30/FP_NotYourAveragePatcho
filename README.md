@@ -13,6 +13,9 @@ We created a version of the classic game Minesweeper in the terminal. It uses AN
 
 ## How-to-run
 From the root directory, run:
+
 `javac *java`
+
 This will compile all required files. Then, to run, type:
+
 `java Woo`
