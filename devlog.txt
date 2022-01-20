@@ -105,6 +105,7 @@ Faiza Huda       :: Helped add more input prompts and flaging
 2022-01-19 (@ dojo and after class/home)
 --------------------------------------------------------------
 Gabriel Thompson :: Wrote ANSI escape code to color the numbers; worked on checking if game was won
+                    Wrote flowchart for Woo
 Faiza Huda       :: Fixed bug with flagged tiles; changed flood fill to not have 0s in the inside;
                     made a prelim winChecker and score
 Jacob Ng         :: Created a new scoring system. Found bug where error occurs when coordinates are too large. Have not fixed yet.
