@@ -14,6 +14,7 @@ public class Woo {
 		boolean running = true;
 
 		Scanner sc = new Scanner(System.in);
+
 		while(running){
 		System.out.print("Which of the following difficulties would you like?\n" +
 				 "  1. Easy\n" +
@@ -31,6 +32,8 @@ public class Woo {
 			System.out.println("\u001b[91;1mInput a real number you idiot. I will now self-destruct\u001b[0m");
 			System.out.println(1/0);
 		}
+
+		playing = true;
 
 		while (playing) {
 			b.displayBoard();
@@ -59,12 +62,23 @@ public class Woo {
 					score = ((int)((b.countViewed() * 1_000_000.0) - finalScoreTime));
                                 	b.showMines();
                         	        b.displayBoard();
-//                	                System.out.print("\nAHA! You stepped on a mine! Game over! \n Score = " + finalScoreTime);
                 	                System.out.print("\nAHA! You stepped on a mine! Game over! \n Score = " + score);
 					System.out.println();
 					scoreboard.add(score);
-				//	System.out.println("Scoredboard: " + scoreboard);
+					System.out.println("Scoredboard: " + scoreboard);
 				 	playing = false;
+					System.out.print("Would you like to play again? (y/n)\n" +
+                                        	         "Type your answer here: ");
+                                	String answer = sc.next().toLowerCase();
+                                	if (answer.equals("y")){
+                                        	running = true;
+					}
+                                	else if (answer.equals("n"))
+                                        	running = false;
+                                	else{
+                                        	System.out.println("\u001b[91;1mI take that as a no. Goodbye\u001b[0m");
+                                        	running = false;
+                                	}
 
 	                        }
 
@@ -81,15 +95,21 @@ public class Woo {
 				System.out.print("\nYAY! You did it. I knew you could :) \n Score = " + score);
 				scoreboard.add(score);
 				System.out.println();
-			//	System.out.println("Scoredboard: " + scoreboard);
+				System.out.println("Scoredboard: " + scoreboard);
 				playing = false;
-
+				System.out.print("Would you like to play again? (y/n)\n" +
+                                	         "Type your answer here: ");
+                        	String answer = sc.next().toLowerCase();
+                        	if (answer.equals("y")){
+                                	running = true;
+				}
+                        	else if (answer.equals("n"))
+                                	running = false;
+                        	else{
+                                	System.out.println("\u001b[91;1mI take that as a no. Goodbye\u001b[0m");
+                                	running = false;
+                        	}
 			}
-			System.out.print("Would you like to play again? (y/n)\n" +
-					 "Type your answer here: ");
-			
-
-
 		}
 		}
 	}
