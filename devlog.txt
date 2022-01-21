@@ -100,7 +100,7 @@ Jacob Ng         :: Designed markers for the top of the screen.
 2022-01-19 (class)
 --------------------------------------------------------------
 Gabriel Thompson :: Refined flood fill algorithm, to not stop filling at corners
-Faiza Huda       :: Helped add more input prompts and flaging
+Faiza Huda       :: Helped add more input prompts and flagging
 Jacob Ng         :: Not in class
 ==============================================================
 
@@ -115,15 +115,16 @@ Jacob Ng         :: Created a new scoring system. Found bug where error occurs w
 
 2022-01-20 (class)
 ______________________________________________________________
-Gabriel Thompson :: 
-Faiza Huda :: 
-Jacob Ng :: 
+Gabriel Thompson :: Fixed bug where mines can generated where the first move is made
+Faiza Huda       :: Made difficulties, and error message (done in v4)
+Jacob Ng         :: Created TODO list of features to add
 ==============================================================
 
 2022-01-20 (@ dojo and after class/home)
 ______________________________________________________________
-Gabriel Thompson :: 
-Faiza Huda :: attempted to try and fix winOS problem; Made Scoreboard with insertionSort; fixed flag bug
-Jacob Ng :: made input to play again
+Gabriel Thompson :: Fixed error where mines were not generated after the first game
+Faiza Huda       :: Added scoreboard and fixed bug with flagging and unflagging tiles
+Jacob Ng         :: Made the game playable multiple times, added prompt for user to play again
+                    Added messages for winning and losing
 ==============================================================
 
