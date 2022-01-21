@@ -8,7 +8,7 @@ public class Woo {
 		long finalScoreTime;
 		int score;
 		Board b = new Board(420, 69);
-		ArrayList scoreboard = new ArrayList<Integer>();
+		Scoreboard scboard = new Scoreboard();
 		boolean playing = true;
 		boolean onFirstMove = true;
 		boolean running = true;
@@ -64,8 +64,8 @@ public class Woo {
                         	        b.displayBoard();
                 	                System.out.print("\nAHA! You stepped on a mine! Game over! \n Score = " + score);
 					System.out.println();
-					scoreboard.add(score);
-					System.out.println("Scoredboard: " + scoreboard);
+					scboard.add(score);
+					System.out.println("High Score: " + scboard.hiScore());
 				 	playing = false;
 					System.out.print("Would you like to play again? (y/n)\n" +
                                         	         "Type your answer here: ");
@@ -93,9 +93,9 @@ public class Woo {
 				}
 				score = ((int)((b.countViewed() * 1_000_000.0) - finalScoreTime));
 				System.out.print("\nYAY! You did it. I knew you could :) \n Score = " + score);
-				scoreboard.add(score);
+				scboard.add(score);
 				System.out.println();
-				System.out.println("Scoredboard: " + scoreboard);
+				System.out.println("High Score: " + scboard.hiScore());
 				playing = false;
 				System.out.print("Would you like to play again? (y/n)\n" +
                                 	         "Type your answer here: ");
