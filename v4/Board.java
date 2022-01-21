@@ -150,7 +150,8 @@ public class Board {
 	}
 
 	public void flag(int row, int col) {
-		this.flags[row][col] = !this.flags[row][col];
+		if (!viewed[row][col])
+			this.flags[row][col] = !this.flags[row][col];
 	}
 
 	public boolean hasWon() { return this.won; }
