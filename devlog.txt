@@ -18,6 +18,7 @@ OBSTACLES OVERCOME
  - Stopped using just one function to do the flood fill -- instead had a driver function
    and a separate function that actually does the flood filling
  - Fixed bug that allows user to still open flagged tile
+ - FIxed another bug with flagging overriding already viewed tiles
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -121,8 +122,8 @@ Jacob Ng ::
 
 2022-01-20 (@ dojo and after class/home)
 ______________________________________________________________
-Gabriel Thompson ::
-Faiza Huda :: attempted to try and fix winOS problem; Made Scoreboard with insertionSort
+Gabriel Thompson :: 
+Faiza Huda :: attempted to try and fix winOS problem; Made Scoreboard with insertionSort; fixed flag bug
 Jacob Ng :: made input to play again
 ==============================================================
 
