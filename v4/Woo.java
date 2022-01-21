@@ -62,7 +62,7 @@ public class Woo {
 					score = ((int)((b.countViewed() * 1_000_000.0) - finalScoreTime));
                                 	b.showMines();
                         	        b.displayBoard();
-                	                System.out.print("\nAHA! You stepped on a mine! Game over! \n Score = " + score);
+                	                System.out.print("\nAHA! You stepped on a mine! Game over! \nScore = " + score);
 					System.out.println();
 					scboard.add(score);
 					System.out.println("High Score: " + scboard.hiScore());
@@ -92,7 +92,7 @@ public class Woo {
 					finalScoreTime = 999_999;
 				}
 				score = ((int)((b.countViewed() * 1_000_000.0) - finalScoreTime));
-				System.out.print("\nYAY! You did it. I knew you could :) \n Score = " + score);
+				System.out.print("\nYAY! You did it. I knew you could :) \nScore = " + score);
 				scboard.add(score);
 				System.out.println();
 				System.out.println("High Score: " + scboard.hiScore());
