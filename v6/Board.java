@@ -114,14 +114,14 @@ public class Board {
 			return true;
             }
 		if (mines[row][col]){
-			System.out.println("There is a bomn");
+			showMines();
+			displayBoard();
     			return false;
             }
 		ArrayList<int[]> seen = new ArrayList<int[]>();
 		tileFillHelper(row, col, seen);
     
 		if (countViewed() > (this.width * this.height) - this.minesCount){
-			System.out.println("We won");
 			this.won = true;
             		return false;
     		}

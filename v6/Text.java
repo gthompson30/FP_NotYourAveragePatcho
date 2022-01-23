@@ -15,4 +15,9 @@ public class Text {
 		return out + ";1m";
 	}
 
+	  public static String go(int x, int y)
+  		{
+    			return ("\033[" + x + ";" + y + "H");
+  		}	
+
 }

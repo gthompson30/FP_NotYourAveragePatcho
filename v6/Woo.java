@@ -58,11 +58,10 @@ public class Woo {
 
                         if (onFirstMove) {
                                 b.generateMines(row, col);
-                                System.out.println("generated mines!! " + b.minesCount);
                                 onFirstMove = false;
                         }
 
-									while (true) {
+			while (true) {
                         	System.out.print("Would you like to open, or flag this tile (Type open/flag)? ");
                         	String moveType = sc.next();
                         	moveType = moveType.toLowerCase();
@@ -97,7 +96,7 @@ public class Woo {
 
                         scboard.add(score);
                         System.out.println();
-                        System.out.println("High Score: " + scboard.hiScore());
+                        System.out.println("High Scores:\n " + scboard.topFive());
                         
                         System.out.print("Would you like to play again? (y/n) " );
                         String answer = sc.next().toLowerCase();
@@ -105,7 +104,6 @@ public class Woo {
                         if (answer.equals("y")) {
                                 newSession();
                         } else if (answer.equals("n")) { 
-				System.out.println("Come back soon!");
 				playing = false;
 			} else {
                           	System.out.println("\u001b[91;1mI take that as a no. Goodbye\u001b[0m");

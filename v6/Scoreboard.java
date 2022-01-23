@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 
 public class Scoreboard{
@@ -12,7 +13,7 @@ public class Scoreboard{
 		scoreboard.add(newScore);
 	}
 
-	public int hiScore(){
+	public void sort(){
 		for (int partition = 0; partition < scoreboard.size() - 1; partition++){
 			for (int i = partition + 1; i > 0; i--){
 				if ((scoreboard.get(i)).compareTo(scoreboard.get(i - 1)) > 0) {
@@ -23,7 +24,21 @@ public class Scoreboard{
 					break;
 			}
 		}
-		return scoreboard.get(0);
+	}
+
+	public String topFive(){
+		sort();
+		String output = "Numero\t\tScore\n" +
+				"_____________________________\n"; 
+		for (int i = 0; i < 5; i++){
+			if (i > scoreboard.size() - 1){
+				output += "|" + i + "|\n";
+			}
+			else {
+				output += "|" + i + "|\t\t" + scoreboard.get(i) + "\n";
+			}
+		}
+		return output;
 	}
 
 	public String toString(){
