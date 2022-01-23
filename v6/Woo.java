@@ -6,6 +6,7 @@ public class Woo {
                 private long startTime;
 		private long finalScoreTime;
                	private int score;
+		private String playerName;
                 private Board b;
                 private Scoreboard scboard = new Scoreboard();
 
@@ -49,7 +50,7 @@ public class Woo {
 
                 
                 public boolean playGame() {
-
+			Text.clear();
                 	b.displayBoard();
 
                         System.out.print("Enter row and col to select, separated by space: ");
@@ -94,8 +95,16 @@ public class Woo {
                                 System.out.print("\nAHA! You stepped on a mine! Game over! \nScore = " + score);
                         }
 
-                        scboard.add(score);
-                        System.out.println();
+			System.out.println("\nTime to own up to your score. \nWhat's your name? (10 chars max)");
+			while (true) {
+				playerName = sc.next();
+				if (playerName.length() < 10){
+					break;
+				}
+				System.out.println("\n\u001b[91;1mI SAID 10 CHARACTERS.\u001b[0m \nNow let's try this again:");
+
+                        }
+			scboard.add(playerName, score);
                         System.out.println("High Scores:\n " + scboard.topFive());
                         
                         System.out.print("Would you like to play again? (y/n) " );

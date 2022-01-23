@@ -15,9 +15,11 @@ public class Text {
 		return out + ";1m";
 	}
 
-	  public static String go(int x, int y)
-  		{
+	public static String go(int x, int y){
     			return ("\033[" + x + ";" + y + "H");
-  		}	
+  	}	
 
+	public static String clear(){
+		return "\033[2J";
+	}
 }
