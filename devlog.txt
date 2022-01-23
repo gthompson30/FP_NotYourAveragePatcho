@@ -128,3 +128,13 @@ Jacob Ng         :: Made the game playable multiple times, added prompt for user
                     Added messages for winning and losing
 ==============================================================
 
+2022-01-21
+______________________________________________________________
+Faiza Huda       :: Reconstructed Woo.java to make it a bit more legible
+==============================================================
+
+2022-01-22
+______________________________________________________________
+Faiza Huda       :: Made top 5 scoreboard with inputted name and score
+                    fixed mines so it shows up in the end
+==============================================================
