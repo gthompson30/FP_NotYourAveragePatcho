@@ -38,16 +38,18 @@ public class Board extends TerminallyIll {
 
 	public void displayBoard() {
 		System.out.print(CLEAR_SCREEN);
-		System.out.println();
-		System.out.print(offset + "     ");
-		for (int i = 0; i < this.width; i++)
-			System.out.print((int) (i / 10));
+		           
+		for (int i = 0; i < this.width; i++) //for some reason the board doesn't properly allign top and bottom for the diff modes so we need to manually compensate for them all
+                        System.out.print(TerminallyIll.goDisplacement(32, 76 + i, this.displacement) + (int) (i / 10));
+		
 		System.out.print("\n     " + offset);
 		for (int i = 0; i < this.width; i++)
 			System.out.print(i % 10);
-                System.out.print("\n" + offset + "   ╔");
+                
+		System.out.print("\n" + offset + "   ╔");
 		for (int i = 0; i < this.width + 1; i++)
 			System.out.print("═");
+		
 		System.out.println();
 		for (int row = 0; row < this.height; row++) {
 			System.out.print(offset);
@@ -60,7 +62,11 @@ public class Board extends TerminallyIll {
 				int surroundingCount = this.getSurroundingCount(row, col);
 
 				if (this.flags[row][col]) {
-					System.out.print(color(RED, background(BLACK)) + "⚐\u001b[0m");
+                                        if (showMines && !this.mines[row][col]){ //When the game ends, we show X's on the flags that were placed incorrectly
+                                                System.out.print(color(RED, background(BLACK)) + "X");
+                                        } else {
+                                        System.out.print(color(RED, background(BLACK)) + "⚐\u001b[0m");
+                                        }
 
 				} else if (this.viewed[row][col]) {
 
@@ -116,7 +122,6 @@ public class Board extends TerminallyIll {
 	public boolean selectTile(int row, int col) {
 
 		if (flags[row][col]){
-			System.out.println("There is a flag");
 			return true;
             }
 		if (mines[row][col]){
