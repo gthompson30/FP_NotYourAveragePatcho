@@ -18,7 +18,7 @@ public class Woo extends TerminallyIll {
                 private boolean onFirstMove;
                 private Scanner sc = new Scanner(System.in);
 		public boolean playing;
-
+		private int row, col;
 		private static Sequence sequence;
 		private static Sequencer sequencer;
 		private static File song = new File("song.mid");
@@ -66,18 +66,21 @@ public class Woo extends TerminallyIll {
                         System.out.print("  3. Difficult");
                         System.out.print(RESET + go(25, 50) + color(WHITE, BACKGROUND));
                         System.out.print("Type the number here: ");
-                        int difficulty = sc.nextInt();
 
-                        if (difficulty == 1)
+			String fake = sc.next();
+		
+			if (fake.equals("1"))				//Our way of making sure the user inputs the right input. 
                                 b = new EasyBoard();
-                        else if (difficulty == 2)
+                        else if (fake.equals("2"))
                                 b = new MediumBoard();
-                        else if (difficulty == 3)
+                        else if (fake.equals("3"))
                                 b = new DifficultBoard();
                         else {
                                 System.out.println("\u001b[91;1mInput a valid option you idiot. I will now self-destruct\u001b[0m");
                                 System.out.println(1 / 0);
                         }
+                
+
 
                         startTime = System.currentTimeMillis();
                 }
@@ -86,10 +89,37 @@ public class Woo extends TerminallyIll {
                 //New game, NOT a new program
                 public boolean playGame() {
                         b.displayBoard();
-
+			boolean check = true;
                         System.out.print("Enter row and col to select, separated by space: ");
-                        int row = sc.nextInt();
-                        int col = sc.nextInt();
+                        
+			while(!sc.hasNextInt()){
+
+				System.out.println("try again");
+
+			/*	if(sc.hasNextInt()){
+					row = sc.nextInt();
+					if(sc.hasNextInt()){
+						col = sc.nextInt();
+					}else{
+			      			System.out.println("\n\u001b[91;1msomething\u001b[0m \nNow let's try this again. Enter row and col to select, separated by space: ");
+
+					}
+				}
+				else{
+            			System.out.println("\n\u001b[91;1mThat's not even an int bro.\u001b[0m \nNow let's try this again. Enter row and col to select, separated by space: ");
+				}
+			*/	
+
+			}
+
+				row = sc.nextInt();
+				//int row = Integer.parseInt(rowc);
+                        	//int col = Integer.parseInt(colc);
+			 while(!sc.hasNextInt()){
+
+                                System.out.println("try again");
+			}
+				col = sc.nextInt();
 
                         if (onFirstMove) {
                                 b.generateMines(row, col);
@@ -149,7 +179,7 @@ public class Woo extends TerminallyIll {
                         if (answer.equals("y")) {
                                 System.out.println(CLEAR_SCREEN);
 				newSession();
-                        } else if (answer.equals("n")) { 
+                        } else if (answer.equals("n")) {
 				playing = false;
 			} else {
                           	System.out.println("\u001b[91;1mI take that as a no. Goodbye\u001b[0m");

@@ -122,7 +122,9 @@ public class Board extends TerminallyIll {
 	public void showMines() { this.showMines = true; }
 
 	public boolean selectTile(int row, int col) {
-
+		if (row > this.height || col > this.width){
+	    		return true;
+	    }
 		if (flags[row][col]){
 			return true;
             }
