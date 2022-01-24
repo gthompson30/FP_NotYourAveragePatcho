@@ -138,3 +138,12 @@ ______________________________________________________________
 Faiza Huda       :: Made top 5 scoreboard with inputted name and score
                     fixed mines so it shows up in the end
 ==============================================================
+
+2022-01-23
+______________________________________________________________
+Gabriel Thompson :: Added background to whole game, title screen with diff text color and italics, and music
+Faiza Huda       :: Fixed title screen bug and fixed the coordinates so its properly alligned for all boards
+                    Added feature that prints out Xs on the misplaced flags after losing game
+Jacob Ng         :: 
+==============================================================
+
