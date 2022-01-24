@@ -1,7 +1,7 @@
 /**
  * collection of ANSI control codes and other handy lil' tricks for terminal enlivenation
  * 
- * orginated by sk, tweaked by tm
+ * orginated by sk, tweaked by tm, tweaked again by NAP to include methods specific to project
  **/
 
 public class TerminallyIll
@@ -37,6 +37,35 @@ public class TerminallyIll
     return ("\033[" + x + ";" + y + "H");
   }
 
+  //delay printing...
+  public static void wait(int millis)
+  {
+    try {
+      Thread.sleep(millis);
+    }
+    catch (InterruptedException e) {
+    }
+  }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Methods we've created~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//colors the numbers in minesweeper spefically
+  public static String getColor(int n) {
+		String out = "\u001b[";
+
+		if (n == 1) { out += "94"; }
+		if (n == 2) { out += "92"; }
+		if (n == 3) { out += "91"; }
+		if (n == 4) { out += "34"; }
+		if (n == 5) { out += "95"; }
+		if (n == 6) { out += "96"; }
+		if (n == 7) { out += "90"; }
+		if (n == 8) { out += "1"; }
+
+		return out + ";40m";
+  }
+
+
   //Builds on the og go method but is specific to a bug in this program
   public static String goDisplacement(int x, int y, int displace)
   {
@@ -56,16 +85,7 @@ public class TerminallyIll
     return ("\033[0;" + a+ ";" + b + ";" + c + ";" + d + "m");
   }
 
-
-  //delay printing...
-  public static void wait(int millis)
-  {
-    try {
-      Thread.sleep(millis);
-    }
-    catch (InterruptedException e) {
-    }
-  }
+//__________________________________________________________________________
 
 
   public static void main(String[] args)
