@@ -16,7 +16,7 @@ We created a version of the classic game Minesweeper that runs in the terminal.
 - We use ANSI escape codes to color tiles appropriately, and Unicode characters to draw the boundary of the board
 - We use the flood fill algorithm to clear open spaces, implemented recursively
 
-**Topics from Semester Included (so far)**:
+**Topics from Semester Included**:
 - Classes and instances
 - Arrays
 - ArrayLists
@@ -24,10 +24,7 @@ We created a version of the classic game Minesweeper that runs in the terminal.
 - .equals()
 - Scanner
 - currentTimeMillis()
-
-**Topics We Will Include (and how)**:
 - Inheritance (different classes for difficulties)
-- Interfaces (interface for all the difficulties)
 - Sorting algorithms (to sort high scores)
 
 ## How-to-run
@@ -38,5 +35,8 @@ From the root directory, run:
 This will compile all required files. Then, to run, type:
 
 `java Woo`
+First, the user will be prompted to select a difficulty. Beware failure to comply may result in self destruct sequence. After selecting a difficulty, a board shall be generated.
 
-In each turn of the gameplay, a the board will displayed in the terminal, and you will be asked to choose a row and column, and either flag or reveal it. This process will repeat until either you are done the game, or you opened a mine. At this point, your score will be shown and added to the leaderboard.
+In each turn of the gameplay, a the board will be displayed in the terminal, and you will be asked to choose a row and column, and either flag or reveal it. This process will repeat until either you are done with the game, or you opened a mine. At this point, you will be prompted to input a name the follows our requirements. Then, your score will be shown and added to the leaderboard. You will then be asked to play again.
+
+For those who don't know the rules to Minesweeper, check out this fantastic explanation: [Minesweeper Rules](https://www.ducksters.com/games/minesweeper.php#:~:text=The%20numbers%20on%20the%20board,empty%20spaces%20to%20win%20Minesweeper.)
