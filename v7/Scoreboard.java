@@ -9,11 +9,12 @@ public class Scoreboard{
 		scoreboard = new ArrayList<Comparable[]>();
 	}
 
+	//adding an array into our arrayList almost like a 2d array
 	public void add(String name, int newScore){
 		Comparable[] arr = { name, newScore };
 		scoreboard.add(arr);
 	}
-
+	//insertion sort for our scoreboard
 	public void sort(){
 		for (int partition = 0; partition < scoreboard.size() - 1; partition++){
 			for (int i = partition + 1; i > 0; i--){
@@ -27,7 +28,7 @@ public class Scoreboard{
 		}
 	}
 	
-
+	//only print top 5 scores
 	public String topFive(){
 		sort();
 		String output = "    Name          Score\n" +
