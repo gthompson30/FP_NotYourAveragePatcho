@@ -19,6 +19,12 @@ OBSTACLES OVERCOME
    and a separate function that actually does the flood filling
  - Fixed bug that allows user to still open flagged tile
  - FIxed another bug with flagging overriding already viewed tiles
+ - Fixed bug where user inputted a non integer during difficulty selection. 
+ - Fixed bug where user inputted integers not in range of the board.
+ - Fixed title screen bug and fixed the coordinates so its properly alligned for all boards
+ - Fixed mines so it shows up in the end
+ - Fixed error where mines were not generated after the first game
+ - Fixed bug where mines can be generated where the first move is made
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -30,7 +36,10 @@ UNRESOLVED ISSUES
 COOL STUFF THAT *WILL* BE ADDED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  - Possibly ask for row in one prompt, then ask for column. In the first prompt,
-   highlight the row, so that players can locate coordinates more easily
+   highlight the row, so that players can locate coordinates more easily 
+   *Edit* *we did not do this*
+ - Added background to whole game, title screen with diff text color and italics, and music
+ - Scoreboard
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -47,6 +56,8 @@ MID-DEVELOPMENT DESIGN CHANGES
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
+
+ -Don't wait until the last minute to do stuff.
 ||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -144,6 +155,7 @@ ______________________________________________________________
 Gabriel Thompson :: Added background to whole game, title screen with diff text color and italics, and music
 Faiza Huda       :: Fixed title screen bug and fixed the coordinates so its properly alligned for all boards
                     Added feature that prints out Xs on the misplaced flags after losing game
-Jacob Ng         :: 
+Jacob Ng         :: Fixed bug where user inputted a non integer during difficulty selection. 
+                    Fixed bug where user inputted integers not in range of the board.
 ==============================================================
 
