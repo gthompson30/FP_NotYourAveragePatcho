@@ -1,7 +1,7 @@
 public class EasyBoard extends Board {
 
 	public EasyBoard() {
-		super(10, 8);
+		super(10, 8, 0);
 	}
 
 }
