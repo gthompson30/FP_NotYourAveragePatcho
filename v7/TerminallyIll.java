@@ -37,6 +37,11 @@ public class TerminallyIll
     return ("\033[" + x + ";" + y + "H");
   }
 
+  //Builds on the og go method but is specific to a bug in this program
+  public static String goDisplacement(int x, int y, int displace)
+  {
+        return go(x, y - displace);
+  }
     
   public static String color(int a, int b)
   {
