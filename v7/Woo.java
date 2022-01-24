@@ -1,6 +1,9 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
+import java.io.File;
+import javax.sound.midi.*;
+
 public class Woo extends TerminallyIll {
 
                 private long startTime;
@@ -12,8 +15,11 @@ public class Woo extends TerminallyIll {
 		private static final int BACKGROUND = background(BLACK);
                 private boolean onFirstMove;
                 private Scanner sc = new Scanner(System.in);
-		
 		public boolean playing;
+
+		private static Sequence sequence;
+		private static Sequencer sequencer;
+		private static File song = new File("song.mid");
 
 		public Woo() {
 			playing = true;
@@ -136,7 +142,20 @@ public class Woo extends TerminallyIll {
 			System.out.println(RESET);
 		}
                 
+		public static void load() throws Exception {
+			sequence = MidiSystem.getSequence(song);
+			sequencer = MidiSystem.getSequencer();
+			sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
+		}
+
                 public static void main( String[] args ){
+			try {
+				load();
+				sequencer.open();
+				sequencer.setSequence(sequence);
+				sequencer.start();
+			} catch (Exception e) { System.out.println("Loading error!"); }
+
 			System.out.print(color(WHITE, BACKGROUND));
 			System.out.println(CLEAR_SCREEN);
 			intro();
@@ -147,5 +166,7 @@ public class Woo extends TerminallyIll {
 				}
 			}
                         System.out.println( "Thanks for playing!" );
+			sequencer.stop();
+			sequencer.close();
                 }
         }

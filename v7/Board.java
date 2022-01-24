@@ -38,6 +38,7 @@ public class Board extends TerminallyIll {
 
 	public void displayBoard() {
 		System.out.print(CLEAR_SCREEN);
+		System.out.println();
 		System.out.print(offset + "     ");
 		for (int i = 0; i < this.width; i++)
 			System.out.print((int) (i / 10));
