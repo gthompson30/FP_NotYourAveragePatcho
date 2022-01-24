@@ -1,3 +1,5 @@
+//Modelled after the YoRPG Driver file
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -26,24 +28,46 @@ public class Woo extends TerminallyIll {
                 	Scanner sc = new Scanner(System.in);
                 	newSession();
         	}
+	
+	        // awesome title card
+                public static void intro() {
+                        System.out.println(CLEAR_SCREEN);
+                        String start = "                                        ";
+                        for (int i = 0; i < 8; i++) {System.out.println();}
+                        System.out.println(color(RED, BACKGROUND));
+                        System.out.println(go(15,41) + "███╗   ███╗ ██╗███╗   ██╗██████╗ ███████╗██╗    ██╗██████╗ ██████╗ ██████╗ ██████╗ ██████╗ ");
+                        System.out.println(go(16,41) + "████╗ ████║███║████╗  ██║╚════██╗██╔════╝██║    ██║╚════██╗╚════██╗██╔══██╗╚════██╗██╔══██╗");
+                        System.out.println(go(17,41) + "██╔████╔██║╚██║██╔██╗ ██║ █████╔╝███████╗██║ █╗ ██║ █████╔╝ █████╔╝██████╔╝ █████╔╝██████╔╝");
+                        System.out.println(go(18,41) + "██║╚██╔╝██║ ██║██║╚██╗██║ ╚═══██╗╚════██║██║███╗██║ ╚═══██╗ ╚═══██╗██╔═══╝  ╚═══██╗██╔══██╗");
+                        System.out.println(go(19,41) + "██║ ╚═╝ ██║ ██║██║ ╚████║██████╔╝███████║╚███╔███╔╝██████╔╝██████╔╝██║     ██████╔╝██║  ██║");
+                        System.out.println(go(20,41) + "╚═╝     ╚═╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝ ╚══╝╚══╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═════╝ ╚═╝  ╚═╝");
+                        System.out.println(RESET);
+                }
   
                 
+		public static void load() throws Exception {
+			sequence = MidiSystem.getSequence(song);
+			sequencer = MidiSystem.getSequencer();
+			sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
+		}
+                
+                // New program when type in java Woo
                 public void newSession() {
                         onFirstMove = true;
-                        b = new Board(60, 60);
+                        b = new Board(60, 60, 0);
 
-			System.out.print(go(20, 50) + color(WHITE, BACKGROUND));
+                        System.out.print(go(21, 50) + color(WHITE, BACKGROUND));
                         System.out.print("Which of the following difficulties would you like?");
-			System.out.print(go(21, 50) + color(WHITE, BACKGROUND, ITALICS));
-			System.out.print("  1. Easy");
-			System.out.print(go(22, 50));
-			System.out.print("  2. Medium");
-			System.out.print(go(23, 50));
-			System.out.print("  3. Difficult");
-			System.out.print(RESET + go(24, 50) + color(WHITE, BACKGROUND));
-			System.out.print("Type the number here: ");
+                        System.out.print(go(22, 50) + color(WHITE, BACKGROUND, ITALICS));
+                        System.out.print("  1. Easy");
+                        System.out.print(go(23, 50));
+                        System.out.print("  2. Medium");
+                        System.out.print(go(24, 50));
+                        System.out.print("  3. Difficult");
+                        System.out.print(RESET + go(25, 50) + color(WHITE, BACKGROUND));
+                        System.out.print("Type the number here: ");
                         int difficulty = sc.nextInt();
-                        
+
                         if (difficulty == 1)
                                 b = new EasyBoard();
                         else if (difficulty == 2)
@@ -51,16 +75,17 @@ public class Woo extends TerminallyIll {
                         else if (difficulty == 3)
                                 b = new DifficultBoard();
                         else {
-                                System.out.println("\u001b[91;1mInput a real number you idiot. I will now self-destruct\u001b[0m");
+                                System.out.println("\u001b[91;1mInput a valid option you idiot. I will now self-destruct\u001b[0m");
                                 System.out.println(1 / 0);
                         }
 
-                	startTime = System.currentTimeMillis();
+                        startTime = System.currentTimeMillis();
                 }
 
                 
+                //New game, NOT a new program
                 public boolean playGame() {
-                	b.displayBoard();
+                        b.displayBoard();
 
                         System.out.print("Enter row and col to select, separated by space: ");
                         int row = sc.nextInt();
@@ -71,21 +96,23 @@ public class Woo extends TerminallyIll {
                                 onFirstMove = false;
                         }
 
-			while (true) {
-                        	System.out.print("Would you like to open, or flag this tile (Type open/flag)? ");
-                        	String moveType = sc.next();
-                        	moveType = moveType.toLowerCase();
+                        while (true) {
+                                System.out.print("Would you like to open, or flag this tile (Type open/flag)? ");
+                                String moveType = sc.next();
+                                moveType = moveType.toLowerCase();
 
-                      		if (moveType.equals("open")) {
-                                	return b.selectTile(row, col);
-                        	} else if (moveType.equals("flag")) {
+                                if (moveType.equals("open")) {
+                                        return b.selectTile(row, col);
+                                } else if (moveType.equals("flag")) {
                                         b.flag(row, col);
                                         return true;
-                        	} else {
-                        		System.out.println("Invalid Option.\n");
-                        	}
-                	}
+                                } else {
+                                        System.out.println("Invalid Option.\n");
+                                }
+                        }
                 }
+
+
                 
 
                 public void endGame() {	
@@ -120,7 +147,8 @@ public class Woo extends TerminallyIll {
                         String answer = sc.next().toLowerCase();
                         
                         if (answer.equals("y")) {
-                                newSession();
+                                System.out.println(CLEAR_SCREEN);
+				newSession();
                         } else if (answer.equals("n")) { 
 				playing = false;
 			} else {
@@ -129,24 +157,7 @@ public class Woo extends TerminallyIll {
                         }
 		}
 
-		public static void intro() {
-			String start = "                                        ";
-			for (int i = 0; i < 8; i++) {System.out.println();}
-			System.out.println(color(RED, BACKGROUND));
-			System.out.println(start+"███╗   ███╗ ██╗███╗   ██╗██████╗ ███████╗██╗    ██╗██████╗ ██████╗ ██████╗ ██████╗ ██████╗ ");
-                        System.out.println(start+"████╗ ████║███║████╗  ██║╚════██╗██╔════╝██║    ██║╚════██╗╚════██╗██╔══██╗╚════██╗██╔══██╗");
-                        System.out.println(start+"██╔████╔██║╚██║██╔██╗ ██║ █████╔╝███████╗██║ █╗ ██║ █████╔╝ █████╔╝██████╔╝ █████╔╝██████╔╝");
-                        System.out.println(start+"██║╚██╔╝██║ ██║██║╚██╗██║ ╚═══██╗╚════██║██║███╗██║ ╚═══██╗ ╚═══██╗██╔═══╝  ╚═══██╗██╔══██╗");
-                        System.out.println(start+"██║ ╚═╝ ██║ ██║██║ ╚████║██████╔╝███████║╚███╔███╔╝██████╔╝██████╔╝██║     ██████╔╝██║  ██║");
-                        System.out.println(start+"╚═╝     ╚═╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝ ╚══╝╚══╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═════╝ ╚═╝  ╚═╝");
-			System.out.println(RESET);
-		}
-                
-		public static void load() throws Exception {
-			sequence = MidiSystem.getSequence(song);
-			sequencer = MidiSystem.getSequencer();
-			sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
-		}
+
 
                 public static void main( String[] args ){
 			try {
