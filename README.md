@@ -39,6 +39,7 @@ From the root directory, run:
 This will compile all required files. Before running, it is highly recommended that you use full screen for your terminal, or have your resolution set to >=170x80. To run, type:
 
 `java Woo`
+
 First, the user will be prompted to select a difficulty. Beware failure to comply may result in self destruct sequence. After selecting a difficulty, a board shall be generated.
 
 In each turn of the gameplay, a the board will be displayed in the terminal, and you will be asked to choose a row and column, and either flag or reveal it. This process will repeat until either you are done with the game, or you opened a mine. At this point, you will be prompted to input a name the follows our requirements. Then, your score will be shown and added to the leaderboard. Finally, you will be asked to play again.
