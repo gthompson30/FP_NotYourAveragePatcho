@@ -93,7 +93,7 @@ public class Woo extends TerminallyIll {
                         b.displayBoard();
 
 			while(true){
-				System.out.print("Enter row and col to select, separated by space: ");
+				System.out.print("                            Enter row and col to select, separated by space: ");
                         	try {
                                 	row = sc.nextInt();
                                 	col = sc.nextInt();
@@ -114,7 +114,7 @@ public class Woo extends TerminallyIll {
 
 			
                         while (true) {
-                                System.out.print("Would you like to open, or flag this tile (Type open/flag)? ");
+                                System.out.print("\n                            Would you like to open, or flag this tile (Type open/flag)? ");
                                 String moveType = sc.next();
                                 moveType = moveType.toLowerCase();
 				System.out.println(moveType);
@@ -178,12 +178,19 @@ public class Woo extends TerminallyIll {
 
 
                 public static void main( String[] args ){
+			System.out.println(color(YELLOW, background(BLACK)) + CLEAR_SCREEN + "THIS MESSAGE WAS BROUGHT TO YOU BY TEAM NOTYOURAVERAGEPATCHO:");
+			System.out.println("This game is best played at roughly 160x80 terminal resolution (fullscreen also works too).");
+			wait(5000);
+
+			// This music code is 100% courtesy of team FrogHats. You can view their original code here: https://github.com/afaruque30/FrogHats_FP/blob/main/music/ClipControl.java
+			// The suggestion to use MIDI files was also based on Jason Zhou's response to @479
+			// The song is Gabriel's MIDI arrangement of "The Little Man from Mars" by Perrey and Kingsley
 			try {
 				load();
 				sequencer.open();
 				sequencer.setSequence(sequence);
 				sequencer.start();
-			} catch (Exception e) { System.out.println("Loading error!"); }
+			} catch (Exception e) { System.out.println("Error loading or playing music!"); }
 
 			System.out.print(color(WHITE, BACKGROUND));
 			System.out.println(CLEAR_SCREEN);
