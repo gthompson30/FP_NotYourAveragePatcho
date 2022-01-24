@@ -26,6 +26,7 @@ public class Board extends TerminallyIll {
 			offset += " ";
 	}
 
+	//Generates mines in a way that makes sure to avoid the coors the player inputs in their first move
 	public void generateMines(int avoidRow, int avoidCol) {
 		int row, col;
 		for (int i = 0; i < this.minesCount; ) {
@@ -38,6 +39,7 @@ public class Board extends TerminallyIll {
 		}
 	}
 
+	//Prints out a board with coors on side and top, numbers indicate nearby mines, @ means mine, ⚐ means flag, and X means misplaced flag
 	public void displayBoard() {
 		System.out.print(CLEAR_SCREEN);
 		           
@@ -75,7 +77,7 @@ public class Board extends TerminallyIll {
 					if (surroundingCount == 0){
 						System.out.print(color(WHITE, background(BLACK)) + " " + RESET);
 					} else {
-						System.out.print(Text.getColor(surroundingCount));
+						System.out.print(TerminallyIll.getColor(surroundingCount));
 						System.out.print(surroundingCount);
 						System.out.print("\u001b[0m");
 					}
@@ -93,6 +95,7 @@ public class Board extends TerminallyIll {
 		System.out.println();
 	}
 
+	//searches all the tiles in a 1-tile radius and counts the mines and returns that
 	public int getSurroundingCount(int row, int col) {
 		int count = 0;
 		int minX = col - 1;
@@ -115,12 +118,9 @@ public class Board extends TerminallyIll {
 		return count;
 	}
 
-	public boolean isAMine(int row, int col) {
-		return this.mines[row][col];
-	}
-
-	public void showMines() { this.showMines = true; }
-
+	//checks if the tile selected is on a mine or not if you opened it and flags tiles
+	//returns true or false indicating that the game is over
+	//also checks if you've won the game
 	public boolean selectTile(int row, int col) {
 		if (row > this.height || col > this.width){
 	    		return true;
@@ -144,6 +144,7 @@ public class Board extends TerminallyIll {
 
 	}
 
+	//recursively flood fills
 	public void tileFillHelper(int row, int col, ArrayList<int[]> seen) {
 		if (row < 0 || row >= this.height || col < 0 || col >= this.width)
 			return;
@@ -167,6 +168,7 @@ public class Board extends TerminallyIll {
 		}
 	}
 
+	//checks if we've alr accounted for this or not (in tileFillHelper)
 	public boolean pairInArray(int first, int second, ArrayList<int[]> array) {
 		for (int[] list : array) {
 			if (list[0] == first && list[1] == second) {
@@ -176,13 +178,13 @@ public class Board extends TerminallyIll {
 		return false;
 	}
 
+	//flags or unflags a tile depending on what's already been done
 	public void flag(int row, int col) {
 		if (!viewed[row][col])
 			this.flags[row][col] = !this.flags[row][col];
 	}
-
-	public boolean hasWon() { return this.won; }
-
+	
+	
 	public int countViewed() {
 		int count = 0;
 		for (boolean[] row : this.viewed) {
@@ -192,5 +194,13 @@ public class Board extends TerminallyIll {
 		}
 		return count;
 	}
-}
 
+	public boolean hasWon() { return this.won; }
+	
+	public boolean isAMine(int row, int col) {
+		return this.mines[row][col];
+	}
+
+	public void showMines() { this.showMines = true; }
+
+}
