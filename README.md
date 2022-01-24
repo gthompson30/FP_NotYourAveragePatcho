@@ -8,6 +8,10 @@
  - [Gabriel Thompson](https://www.github.com/gthompson30)
      - duckies: Iggy
 
+### Major thanks
+ - [Team FrogHats](https://github.com/afaruque30/FrogHats_FP) for their MidiPlayer implementation
+ - [Perrey and Kingsley](https://en.m.wikipedia.org/wiki/Perrey_and_Kingsley) for their song "The Little Man from Mars"
+
 ## Project Description
 We created a version of the classic game Minesweeper that runs in the terminal.
  Our implementation is essentially the same game as the original Minesweeper, however, instead of tapping on tiles with your mouse, you type in the row and column of the mine.
@@ -32,7 +36,7 @@ From the root directory, run:
 
 `javac *java`
 
-This will compile all required files. Then, to run, type:
+This will compile all required files. Before running, it is highly recommended that you use full screen for your terminal, or have your resolution set to >=170x80. To run, type:
 
 `java Woo`
 First, the user will be prompted to select a difficulty. Beware failure to comply may result in self destruct sequence. After selecting a difficulty, a board shall be generated.
