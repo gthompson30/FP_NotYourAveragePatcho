@@ -44,7 +44,7 @@ public class Board extends TerminallyIll {
 		System.out.print(CLEAR_SCREEN);
 		           
 		for (int i = 0; i < this.width; i++) //for some reason the board doesn't properly allign top and bottom for the diff modes so we need to manually compensate for them all
-                        System.out.print(TerminallyIll.goDisplacement(32, 76 + i, this.displacement) + (int) (i / 10));
+                        System.out.print(TerminallyIll.goDisplacement(12, 76 + i, this.displacement) + (int) (i / 10));
 		
 		System.out.print("\n     " + offset);
 		for (int i = 0; i < this.width; i++)
@@ -90,7 +90,7 @@ public class Board extends TerminallyIll {
 
 				}
 			}
-			System.out.println();
+			System.out.println(color(WHITE, background(BLACK)));
 		}
 		System.out.println();
 	}
