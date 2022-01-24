@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Woo {
+public class Woo extends TerminallyIll {
 
                 private long startTime;
 		private long finalScoreTime;
@@ -9,7 +9,7 @@ public class Woo {
 		private String playerName;
                 private Board b;
                 private Scoreboard scboard = new Scoreboard();
-
+		private static final int BACKGROUND = background(BLACK);
                 private boolean onFirstMove;
                 private Scanner sc = new Scanner(System.in);
 		
@@ -26,12 +26,16 @@ public class Woo {
                         onFirstMove = true;
                         b = new Board(60, 60);
 
-                        System.out.print("Which of the following difficulties would you like?\n" +
-                                "  1. Easy\n" +
-                                "  2. Medium\n" +
-                                "  3. Difficult\n" +
-                                "Type the number here: ");
-                                
+			System.out.print(go(20, 50) + color(WHITE, BACKGROUND));
+                        System.out.print("Which of the following difficulties would you like?");
+			System.out.print(go(21, 50) + color(WHITE, BACKGROUND, ITALICS));
+			System.out.print("  1. Easy");
+			System.out.print(go(22, 50));
+			System.out.print("  2. Medium");
+			System.out.print(go(23, 50));
+			System.out.print("  3. Difficult");
+			System.out.print(RESET + go(24, 50) + color(WHITE, BACKGROUND));
+			System.out.print("Type the number here: ");
                         int difficulty = sc.nextInt();
                         
                         if (difficulty == 1)
@@ -50,7 +54,6 @@ public class Woo {
 
                 
                 public boolean playGame() {
-			Text.clear();
                 	b.displayBoard();
 
                         System.out.print("Enter row and col to select, separated by space: ");
@@ -95,7 +98,7 @@ public class Woo {
                                 System.out.print("\nAHA! You stepped on a mine! Game over! \nScore = " + score);
                         }
 
-			System.out.println("\nTime to own up to your score. \nWhat's your name? (10 chars max)");
+			System.out.print("\nTime to own up to your score. \nWhat's your name? (10 chars max, USE UNDERSCORES NOT SPACES)\n > ");
 			while (true) {
 				playerName = sc.next();
 				if (playerName.length() < 10){
@@ -119,8 +122,24 @@ public class Woo {
 				playing = false;
                         }
 		}
+
+		public static void intro() {
+			String start = "                                        ";
+			for (int i = 0; i < 8; i++) {System.out.println();}
+			System.out.println(color(RED, BACKGROUND));
+			System.out.println(start+"███╗   ███╗ ██╗███╗   ██╗██████╗ ███████╗██╗    ██╗██████╗ ██████╗ ██████╗ ██████╗ ██████╗ ");
+                        System.out.println(start+"████╗ ████║███║████╗  ██║╚════██╗██╔════╝██║    ██║╚════██╗╚════██╗██╔══██╗╚════██╗██╔══██╗");
+                        System.out.println(start+"██╔████╔██║╚██║██╔██╗ ██║ █████╔╝███████╗██║ █╗ ██║ █████╔╝ █████╔╝██████╔╝ █████╔╝██████╔╝");
+                        System.out.println(start+"██║╚██╔╝██║ ██║██║╚██╗██║ ╚═══██╗╚════██║██║███╗██║ ╚═══██╗ ╚═══██╗██╔═══╝  ╚═══██╗██╔══██╗");
+                        System.out.println(start+"██║ ╚═╝ ██║ ██║██║ ╚████║██████╔╝███████║╚███╔███╔╝██████╔╝██████╔╝██║     ██████╔╝██║  ██║");
+                        System.out.println(start+"╚═╝     ╚═╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝ ╚══╝╚══╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═════╝ ╚═╝  ╚═╝");
+			System.out.println(RESET);
+		}
                 
                 public static void main( String[] args ){
+			System.out.print(color(WHITE, BACKGROUND));
+			System.out.println(CLEAR_SCREEN);
+			intro();
                 	Woo game = new Woo();
                         while (game.playing ){
 				if (!game.playGame() ) {

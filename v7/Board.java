@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.ArrayList;
 
-public class Board {
+public class Board extends TerminallyIll {
 
 	private int width;
 	private int height;
@@ -11,6 +11,7 @@ public class Board {
 	private boolean[][] mines;
 	private boolean[][] viewed;
 	private boolean[][] flags;
+	public String offset = "";
 
 	public Board(int newWidth, int newHeight) {
 		this.width = newWidth;
@@ -19,6 +20,8 @@ public class Board {
 		this.viewed = new boolean[newHeight][newWidth];
 		this.flags = new boolean[newHeight][newWidth];
 		this.minesCount = (int) (newWidth * newHeight * 0.15);
+		for (int i = 0; i < 75 - newWidth / 2; i++)
+			offset += " ";
 	}
 
 	public void generateMines(int avoidRow, int avoidCol) {
@@ -34,32 +37,34 @@ public class Board {
 	}
 
 	public void displayBoard() {
-		for (int i = 0 ; i < 10 ; i++) { System.out.println(); }
-		System.out.print("     ");
+		System.out.print(CLEAR_SCREEN);
+		System.out.print(offset + "     ");
 		for (int i = 0; i < this.width; i++)
 			System.out.print((int) (i / 10));
-		System.out.print("\n     ");
+		System.out.print("\n     " + offset);
 		for (int i = 0; i < this.width; i++)
 			System.out.print(i % 10);
-                System.out.print("\n   ╔");
+                System.out.print("\n" + offset + "   ╔");
 		for (int i = 0; i < this.width + 1; i++)
 			System.out.print("═");
 		System.out.println();
 		for (int row = 0; row < this.height; row++) {
+			System.out.print(offset);
 			if (row < 10) {
 				System.out.print(0);
 			}
 			System.out.print(row + " ║ ");
 			for (int col = 0; col < this.width; col++) {
+				color(RED, background(WHITE));
 				int surroundingCount = this.getSurroundingCount(row, col);
 
 				if (this.flags[row][col]) {
-					System.out.print("\u001b[91m⚐\u001b[0m");
+					System.out.print(color(RED, background(BLACK)) + "⚐\u001b[0m");
 
 				} else if (this.viewed[row][col]) {
 
 					if (surroundingCount == 0){
-						System.out.print(" ");
+						System.out.print(color(WHITE, background(BLACK)) + " " + RESET);
 					} else {
 						System.out.print(Text.getColor(surroundingCount));
 						System.out.print(surroundingCount);
@@ -67,16 +72,16 @@ public class Board {
 					}
 
 				} else if (this.mines[row][col] && showMines) {
-					System.out.print("@");
+					System.out.print(color(WHITE, background(BLACK)) + "@" + RESET);
 
 				} else {
-					System.out.print("-");
+					System.out.print(color(WHITE, background(BLACK)) + "-" + RESET);
 
 				}
 			}
 			System.out.println();
 		}
-		System.out.println(countViewed());
+		System.out.println();
 	}
 
 	public int getSurroundingCount(int row, int col) {
@@ -121,7 +126,7 @@ public class Board {
 		ArrayList<int[]> seen = new ArrayList<int[]>();
 		tileFillHelper(row, col, seen);
     
-		if (countViewed() > (this.width * this.height) - this.minesCount){
+		if (countViewed() >= (this.width * this.height) - this.minesCount){
 			this.won = true;
             		return false;
     		}
