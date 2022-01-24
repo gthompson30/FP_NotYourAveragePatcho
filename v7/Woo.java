@@ -11,14 +11,16 @@ public class Woo extends TerminallyIll {
                 private long startTime;
 		private long finalScoreTime;
                	private int score;
+		private int row;
+		private int col;
 		private String playerName;
                 private Board b;
                 private Scoreboard scboard = new Scoreboard();
 		private static final int BACKGROUND = background(BLACK);
                 private boolean onFirstMove;
                 private Scanner sc = new Scanner(System.in);
-		public boolean playing;
-		private int row, col;
+			public boolean playing;
+		
 		private static Sequence sequence;
 		private static Sequencer sequencer;
 		private static File song = new File("song.mid");
@@ -67,13 +69,13 @@ public class Woo extends TerminallyIll {
                         System.out.print(RESET + go(25, 50) + color(WHITE, BACKGROUND));
                         System.out.print("Type the number here: ");
 
-			String fake = sc.next();
+			String difficulty = sc.next();
 		
-			if (fake.equals("1"))				//Our way of making sure the user inputs the right input. 
+			if (difficulty.equals("1"))	//Our way of making sure the user inputs the right input. 
                                 b = new EasyBoard();
-                        else if (fake.equals("2"))
+                        else if (difficulty.equals("2"))
                                 b = new MediumBoard();
-                        else if (fake.equals("3"))
+                        else if (difficulty.equals("3"))
                                 b = new DifficultBoard();
                         else {
                                 System.out.println("\u001b[91;1mInput a valid option you idiot. I will now self-destruct\u001b[0m");
@@ -89,47 +91,33 @@ public class Woo extends TerminallyIll {
                 //New game, NOT a new program
                 public boolean playGame() {
                         b.displayBoard();
-			boolean check = true;
-                        System.out.print("Enter row and col to select, separated by space: ");
-                        
-			while(!sc.hasNextInt()){
 
-				System.out.println("try again");
-
-			/*	if(sc.hasNextInt()){
-					row = sc.nextInt();
-					if(sc.hasNextInt()){
-						col = sc.nextInt();
-					}else{
-			      			System.out.println("\n\u001b[91;1msomething\u001b[0m \nNow let's try this again. Enter row and col to select, separated by space: ");
-
-					}
-				}
-				else{
-            			System.out.println("\n\u001b[91;1mThat's not even an int bro.\u001b[0m \nNow let's try this again. Enter row and col to select, separated by space: ");
-				}
-			*/	
+			while(true){
+				System.out.print("Enter row and col to select, separated by space: ");
+                        	try {
+                                	row = sc.nextInt();
+                                	col = sc.nextInt();
+					break;
+                        	} catch (Exception e){
+					row = 0;
+					col = 0;
+					sc.nextLine();
+                        	}
 
 			}
-
-				row = sc.nextInt();
-				//int row = Integer.parseInt(rowc);
-                        	//int col = Integer.parseInt(colc);
-			 while(!sc.hasNextInt()){
-
-                                System.out.println("try again");
-			}
-				col = sc.nextInt();
-
-                        if (onFirstMove) {
+		
+			if (onFirstMove) {
                                 b.generateMines(row, col);
                                 onFirstMove = false;
-                        }
+                       	}
 
+
+			
                         while (true) {
                                 System.out.print("Would you like to open, or flag this tile (Type open/flag)? ");
                                 String moveType = sc.next();
                                 moveType = moveType.toLowerCase();
+				System.out.println(moveType);
 
                                 if (moveType.equals("open")) {
                                         return b.selectTile(row, col);
@@ -144,7 +132,7 @@ public class Woo extends TerminallyIll {
 
 
                 
-
+		//Gets triggered once a game is done-- either by winning or losing
                 public void endGame() {	
 
                 	finalScoreTime = System.currentTimeMillis() - startTime;
@@ -211,3 +199,4 @@ public class Woo extends TerminallyIll {
 			sequencer.close();
                 }
         }
+
