@@ -5,6 +5,7 @@ public class Board extends TerminallyIll {
 
 	private int width;
 	private int height;
+	private int displacement;
 	public int minesCount;
 	private boolean won = false;
 	private boolean showMines = false;
@@ -13,9 +14,10 @@ public class Board extends TerminallyIll {
 	private boolean[][] flags;
 	public String offset = "";
 
-	public Board(int newWidth, int newHeight) {
+	public Board(int newWidth, int newHeight, int newDisplacement) {
 		this.width = newWidth;
 		this.height = newHeight;
+		this.displacement = newDisplacement;
 		this.mines = new boolean[newHeight][newWidth];
 		this.viewed = new boolean[newHeight][newWidth];
 		this.flags = new boolean[newHeight][newWidth];
