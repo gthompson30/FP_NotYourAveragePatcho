@@ -1,7 +1,7 @@
 # FP_NotYourAveragePatcho
 
 ## DA TEAM (in order of lsat nombre)
- - [Faiza Huda](https://www.github.com/FeiFiFoFaiza)
+ - [Faiza Huda](https://www.github.com/FeFiFoFaiza)
      - duckies: TruthfulTom, Hubert
  - [Jacob Ng](https://www.github.com/jng20)
      - duckies: PreGuac
